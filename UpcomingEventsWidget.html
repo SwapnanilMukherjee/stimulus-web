@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin-left: 0px;
+            padding: 0px;
+        }
+
+        .container{
+            box-sizing: border-box;
+            display: flex;
+            width: 925px;
+            flex-direction: column;
+            margin-left: 2px;
+        }
+
+        
+        .eventbox{
+            position: relative;
+            box-sizing: border-box;
+            margin: 0px 0px 30px 0px;
+            border-radius: 4px;
+            background-color: #f3f7ff ;
+            max-height: 79px;
+            transition-property: max-height;
+            transition-timing-function: ease-out;
+            transition-duration: 0.5s;
+            overflow: hidden;
+            box-shadow: 1px 2px 5px 1px rgb(184, 182, 182), -1px 2px 5px  1px rgb(184, 182, 182) ;
+
+        }
+        
+        .eventbox:hover{
+            margin: 0px 0px 35px 0px;
+            max-height: 250px;
+            transition-property: max-height;
+            transition-timing-function: ease-out;
+            transition-duration: 0.5s;
+            
+        }
+
+        .date{display: none;}
+
+        .eventname{
+            display: inline-block;
+            margin: 19px 20px 3px 23px;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .audience{
+            display: inline-block;
+            position: absolute;
+            right: 90px;
+            top: 18px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 14px;
+        }
+
+        .organizer{
+            margin: 1px 0px 6px 23px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 13px;
+        }
+        
+        .description{
+            margin: 15px 9px 19px 23px;
+            font-family: 'Nunito Sans', serif;
+            font-size: 15px;
+        }
+        
+        .button{
+            display: block;
+            color:rgb(133, 12, 247) 
+        }
+
+        #eventbox3, #eventbox5{
+            background-color: #fab4b4da;
+        }
+
+        .note{
+            font-size: 16px;
+            font-family:'Nunito Sans';
+            font-weight: bold;
+        }
+        
+        
+        @media only screen and (max-width: 500px)
+        {
+            .container{
+                width: 100%;
+            }
+
+            .eventbox{
+                border-radius: 1px;
+                width: 291px;
+                height: 70px;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .date{
+                display: inline-block;
+                height: 46px;
+                width: 46px;
+                padding-left: 8px;
+                padding-top: 12px;
+                font-size: 13px;
+                font-family: 'Roboto Slab', serif;
+                font-weight: 500;
+            }
+            
+            .eventname{
+                display: block;
+                width: 240px;
+                height: 70px;
+                margin: 0px;
+                padding-top: 12px;
+                padding-left: 20px;
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+            .organizer {display: none;}
+            .audience{display: none;}
+            .description{display: none;}
+            .button{display: none;}
+
+        }
+
+    </style>
+    
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="eventbox" id='eventbox1'>
+            <div class="date">28 - 31 July</div>
+            <div class="eventname">
+                Connectivity and Diversity in Music Cognition  
+            </div>
+            <span class="audience">Open to All</span>    
+            <div class="organizer">ESCOM</div>
+            <div class="description">
+                16th International Conference on Music Perception and Cognition (ICMPC) jointly organized with the 11th Triennial Conference
+                of the European Society for the Cognitive Sciences of Music (ESCOM)  <a class="button" href="https://www.musiccognitionlab.org/upcoming-events.html" target="_blank">Go To Event</a>
+            </div>
+        </div>
+
+        <div class="eventbox" id='eventbox2'>
+            <div class="date">May 29 - June 4</div>
+            <div class="eventname">
+                Sixth Annual Research Summer School
+            </div>
+            <div class="audience">For Undergraduates</div>
+            <div class="organizer">Monk Prayogshala</div>
+            <div class="description">
+                The Research Summer School is a week-long intensive program that is aimed at honing research and analytical skills. Students of the Summer School will be able to critically engage with contemporary research in their own disciplines and develop a unique skill set to carry out research independently. Training in the Summer School will focus on understanding the fundamentals of research, research methodology and statistical reasoning, literature review and reference management, academic writing, and research proposal writing.  <a class="button" href="\https://www.monkprayogshala.in/courses/2021/research-summer-school" target="_blank">Go To Event</a>
+            </div>
+        </div>
+
+        <div class="eventbox"id='eventbox3'>
+            <div class="date">July 4- August 22</div>
+            <div class="eventname">
+                Lecture Series in Advanced Biology 2021 Theme: Diseases, Pandemic, and Vaccines
+            </div>
+            <span class="audience">Final Year Undergrads</span>
+            <div class="organizer">NCBS-InStem</div>
+            <div class="description">
+                The theme for this year’s lecture series is “Diseases, Pandemic and Vaccines”. We are going through a pandemic, hearing it about on a daily basis, and learning to live with it. Therefore, this is a good opportunity to look at such diseases and pandemics from a broad perspective and learn about the biology of diseases, their spread, control strategies, remedies, and logistical challenges. We will cover broad topics from zoonotic disease biology to vaccines and related problems and in addition the effect of such pandemics on the mind and society <a class="button" href="https://www.ncbs.res.in/people/postdocs-lecture-series-2021" target="_blank">Go To Event</a>
+            </div>
+        </div>
+
+        <div class="eventbox" id='eventbox4'>
+            <div class="date">May 21</div>
+            <div class="eventname">
+                FENS Friday webinar: "Brain Development and Neuropsychiatric Disorders"
+            </div>
+            <span class="audience">Open to All</span>
+            <div class="organizer">FENS</div>
+            <div class="description">
+                The webinar will discuss the state-of-the-art knowledge on transient developmental circuits that help sensory integration in cortical neural circuits, the effects of serotonin signalling on brain development and their contribution to the emergence of neuropsychiatric disorders, the neuronal physiology that underlies critical periods of brain development and how neuronal circuits are affected in autism spectrum disorder. <a class="button" href="https://www.fens.org/News-Activities/News/2021/04/FENS-Friday-Brain-development-and-neuropsychiatric-disorders/" target="_blank">Go To Event</a>
+            </div>
+        </div>
+        
+        <div class="eventbox" id='eventbox5'>
+            <div class="date">Multiple Dates</div>
+            <div class="eventname">
+                CONTAGION Workshops
+            </div>
+            <span class="audience">15 - 28year olds</span>
+            <div class="organizer">Science Gallery Bengaluru</div>
+            <div class="description">
+                <a class="button" href="https://bengaluru.sciencegallery.com/contagion-workshops" target="_blank">Go To Event</a>
+            </div>
+        </div>
+
+        <div class="eventbox" id='eventbox6'>
+            <div class="date">1 - 7 May</div>
+            <div class="eventname">
+                Cajal Week
+            </div>
+            <span class="audience">Open to All</span>
+            <div class="organizer">Project Encephalon</div>
+            <div class="description">
+                A seven day conference to commemorate Santiago Ramón y Cajal who was the first person of Spanish origin to win a Nobel Prize in Medicine for his contributions to neuroscience, packed with interactive lectures, panel discussions and much more.<a class="button" href="https://www.projectencephalon.org/cajal-week" target="_blank">Go To Event</a>
+            </div>
+        </div>
+    </div>
+    <div class="note"><font color='#373B4D'>*<font color="#F7ABAB">Pink-Red</font> boxes are COVID-19 related</font> </div>
+</body>
+</html>
