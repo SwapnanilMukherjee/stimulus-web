@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+            rel="stylesheet"
+        />
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Past Events</title>
+
+        <style>
+            :root {
+                font-size: 20px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                min-height: 100vh;
+            }
+
+            img {
+                display: block;
+            }
+
+            .container {
+                max-width: 40rem;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            .visually-hidden {
+                position: absolute;
+                height: 1px;
+                width: 1px;
+                overflow: hidden;
+                clip: rect(1px, 1px, 1px, 1px);
+            }
+
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                margin: -1rem -1rem;
+                justify-content: center;
+            }
+
+            .gallery-item {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                margin: 1rem;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .gallery-item:hover .gallery-item-info,
+            .gallery-item:focus .gallery-item-info {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                padding: 20px;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .gallery-item-info {
+                display: none;
+                font-size: 20px;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .open-button {
+                background: none;
+                border: none;
+            }
+
+            .close-button {
+                background-color: #47a386;
+                border: 0;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                color: #fff;
+                font-size: 14px;
+                padding: 10px;
+                margin: 10px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+
+            .modal-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.3);
+                position: fixed;
+                opacity: 0;
+                pointer-events: none;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                transition: opacity 0.3s ease;
+            }
+
+            .modal-container.show {
+                pointer-events: auto;
+                opacity: 1;
+            }
+
+            .modal {
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                padding: 30px 50px;
+                width: 1000px;
+                max-width: 100%;
+                height: 90vh;
+            }
+
+            .modal-title {
+                padding: 0px 10px;
+            }
+
+            .modal-text {
+                height: 75%;
+                overflow: auto;
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            .modal p {
+                opacity: 0.7;
+            }
+
+            @media only screen and (max-width: 1260px) {
+                .modal {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    padding: 30px 30px;
+                    width: 1000px;
+                    max-width: 100%;
+                    height: 90vh;
+                }
+
+                .modal-title {
+                    font-size: 35px;
+                    padding: 0px 0px;
+                }
+
+                .modal-text {
+                    height: 75%;
+                    overflow: auto;
+                    border-radius: 5px;
+                    padding: 0px;
+                }
+
+                .close-button {
+                    margin: 20px 0px;
+                }
+            }
+
+            @media only screen and (max-width: 850px) {
+                .modal {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    padding: 30px 30px;
+                    width: 1000px;
+                    max-width: 100%;
+                    height: 90vh;
+                }
+
+                .modal-title {
+                    font-size: 35px;
+                    padding: 0px 0px;
+                }
+
+                .modal-text {
+                    height: 75%;
+                    overflow: auto;
+                    border-radius: 5px;
+                    padding: 0px;
+                }
+
+                .close-button {
+                    margin: 20px 0px;
+                }
+            }
+
+            @media only screen and (max-width: 550px) {
+                .modal {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    padding: 30px 30px;
+                    width: 1000px;
+                    max-width: 100%;
+                    height: 90vh;
+                }
+
+                .modal-title {
+                    padding: 0px 0px;
+                }
+
+                .modal-text {
+                    height: 65%;
+                    overflow: auto;
+                    border-radius: 5px;
+                    padding: 0px;
+                }
+
+                .close-button {
+                    margin: 20px 0px;
+                }
+            }
+
+            @media only screen and (max-width: 450px) {
+                .modal {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    padding: 30px 30px;
+                    width: 1000px;
+                    max-width: 100%;
+                    height: 90vh;
+                }
+
+                .modal-title {
+                    padding: 0px 0px;
+                }
+
+                .modal-text {
+                    height: 70%;
+                    overflow: auto;
+                    border-radius: 5px;
+                    padding: 0px;
+                }
+
+                .close-button {
+                    margin: 20px 0px;
+                }
+            }
+
+            @media only screen and (max-width: 370px) {
+                .modal {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    padding: 30px 30px;
+                    width: 1000px;
+                    max-width: 100%;
+                    height: 90vh;
+                }
+
+                .modal-title {
+                    padding: 0px 0px;
+                    font-size: 30px;
+                }
+
+                .modal-text {
+                    height: 65%;
+                    overflow: auto;
+                    border-radius: 5px;
+                    padding: 0px;
+                    font-size: 15px;
+                }
+
+                .close-button {
+                    margin: 15px 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Container -->
+        <div class="container">
+            <!-- Gallary -->
+            <div class="gallery">
+                <!-- Pic 1 -->
+                <button id="open1" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna give you up
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Pic 2 -->
+                <button id="open2" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna let you down
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Pic 3 -->
+                <button id="open3" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna let you down
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Pic 4 -->
+                <button id="open4" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna make you cry
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Pic 5 -->
+                <button id="open5" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna say goodbye
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Pic 6 -->
+                <button id="open6" class="open-button">
+                    <div class="gallery-item" tabindex="0">
+                        <img
+                            src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
+                            class="gallery-image"
+                        />
+                        <div class="gallery-item-info">
+                            <span class="visually-hidden">Title:</span>
+                            Never gonna tell a lie and hurt you
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <!-- End of Gallary -->
+
+            <!-- Modal 1 -->
+            <div class="modal-container" id="modal_container1">
+                <div class="modal">
+                    <h1 class="modal-title">1) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close1" class="close-button">Close Me</button>
+                </div>
+            </div>
+
+            <!-- Modal 2 -->
+            <div class="modal-container" id="modal_container2">
+                <div class="modal">
+                    <h1 class="modal-title">2) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close2" class="close-button">Close Me</button>
+                </div>
+            </div>
+
+            <!-- Modal 3 -->
+            <div class="modal-container" id="modal_container3">
+                <div class="modal">
+                    <h1 class="modal-title">3) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close3" class="close-button">Close Me</button>
+                </div>
+            </div>
+
+            <!-- Modal 4 -->
+            <div class="modal-container" id="modal_container4">
+                <div class="modal">
+                    <h1 class="modal-title">4) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close4" class="close-button">Close Me</button>
+                </div>
+            </div>
+
+            <!-- Modal 5 -->
+            <div class="modal-container" id="modal_container5">
+                <div class="modal">
+                    <h1 class="modal-title">5) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close5" class="close-button">Close Me</button>
+                </div>
+            </div>
+
+            <!-- Modal 6 -->
+            <div class="modal-container" id="modal_container6">
+                <div class="modal">
+                    <h1 class="modal-title">6) Never Gonna Let You Down</h1>
+                    <div class="modal-text">
+                        <p>
+                            We're no strangers to love <br />
+                            You know the rules and so do I <br />
+                            A full commitment's what I'm thinking of <br />
+                            You wouldn't get this from any other guy <br />
+                        </p>
+                        <p>
+                            I just wanna tell you how I'm feeling <br />
+                            Gotta make you understand <br />
+                        </p>
+                        <p>
+                            Never gonna give you up <br />
+                            Never gonna let you down <br />
+                            Never gonna run around and desert you <br />
+                            Never gonna make you cry <br />
+                            Never gonna say goodbye <br />
+                            Never gonna tell a lie and hurt you <br />
+                        </p>
+                    </div>
+                    <button id="close6" class="close-button">Close Me</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of Container -->
+
+        <script>
+            const number_of_items = 6;
+
+            const open = [];
+            const modal_container = [];
+            const close = [];
+
+            for (let i = 0; i < number_of_items; i++) {
+                open[i] = document.getElementById("open" + (i + 1).toString());
+                modal_container[i] = document.getElementById(
+                    "modal_container" + (i + 1).toString()
+                );
+                close[i] = document.getElementById(
+                    "close" + (i + 1).toString()
+                );
+
+                open[i].addEventListener("click", () => {
+                    modal_container[i].classList.add("show");
+                    document.body.scroll = "no";
+                    document.body.style.overflow = "hidden";
+                });
+
+                close[i].addEventListener("click", () => {
+                    modal_container[i].classList.remove("show");
+                    document.body.scroll = "yes";
+                    document.body.style.overflow = "auto";
+                });
+            }
+        </script>
+    </body>
+</html>
