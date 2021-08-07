@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Events</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            border: 2px solid red;
+            height: 100vh;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .container.overlay-on {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .events{
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            margin: auto;
+            justify-content: center;
+            align-content: justify;
+            border: 2px solid red;
+            z-index: 1;
+            border: 2px solid green;
+        }
+
+        .gallery-item {
+            height: 200px;
+            width: 200px;
+            margin: 20px;
+            box-shadow: none;
+        }
+
+        .item-image{
+            display: inline-block;
+            position: relative;
+            top: -2px;
+            left: -2px;
+            height: 200px;
+            width: 200px;
+            cursor: pointer;
+            z-index: 0;
+        }
+
+        .event-title {
+            visibility: hidden;
+            color: white;
+            font-size: 20px
+        }
+
+        .gallery-item:hover {
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+        }
+
+        .gallery-item:hover .event-title {
+            visibility: visible;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+            max-height: 600px;
+            /** could be trouble in wix **/
+            width: 1000px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+            overflow-y: auto;
+            z-index: 3;
+        }
+
+        .close-btn {
+            color: #aaaaaa;
+            float: right;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-size: 2.1em;
+            font-family: Roboto Slab;
+            margin: 55px 65px;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: justify;
+            font-size: 18px;
+            font-family: Nunito Sans;
+            margin: 0px 65px 55px 65px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id='mainContainer'>
+            <div class="events">
+                <button class="gallery-item" id="gallery-item-1" type="button" onclick="openModal()">
+                    <img class='item-image' src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg" alt=""><div class="event-title">this is an event title</div>
+                </button>
+                <button class="gallery-item" id="gallery-item-2" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
+                <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
+                <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
+                <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
+                <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
+            </div>
+
+            <div class="modal" id='MyModal'>
+                <span class="close-btn">&times;</span>
+                <div class="modal-title">This is a title</div>
+                <p class="modal-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit architecto
+                    ipsa doloremque saepe rem in, obcaecati aliquid et. Animi illo deleniti nemo porro commodi dolore
+                    perferendis consequuntur blanditiis doloremque id inventore quisquam, accusantium ratione quae rerum
+                    quos, maiores iste praesentium?<br><br>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi voluptatem vero corporis sint
+                    explicabo ea voluptatibus earum modi ipsam, unde voluptatum necessitatibus minus dolore obcaecati
+                    itaque nesciunt quas. Dicta, explicabo eos inventore nesciunt sint corporis porro distinctio dolorem
+                    rem modi ut vero ea delectus praesentium voluptates esse. Quibusdam, laudantium ut. Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Aperiam doloremque assumenda natus cum dolores tempore
+                    vero, sit dolorem itaque nobis accusamus id delectus fuga? Necessitatibus velit rem impedit
+                    perferendis deleniti. Temporibus suscipit, fugiat praesentium quisquam sapiente laboriosam adipisci
+                    dignissimos sunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, at? Excepturi esse
+                    sapiente, suscipit soluta quibusdam consequuntur accusamus odit dicta mollitia tempore! Ea,
+                    necessitatibus magni? Ducimus voluptates delectus dolorem quaerat?
+                    Animi sit magni necessitatibus ducimus, ex laboriosam exercitationem architecto modi provident?
+                    Harum facere eveniet enim exercitationem, laboriosam neque modi corrupti explicabo accusantium odit
+                    dolor sit veritatis officia minus in. Amet.
+                    Sunt id, perspiciatis, inventore vero odit vitae incidunt, quod quam ut accusantium repellendus?
+                    Facilis mollitia, corrupti et eaque atque facere nulla autem molestiae. Expedita enim, fugiat ullam
+                    praesentium aliquid suscipit?
+                    Quisquam recusandae, rem esse quia cupiditate distinctio facere magni, ad sapiente id
+                    exercitationem. Incidunt vero, fugiat obcaecati nemo laboriosam labore facilis perspiciatis vel
+                    facere autem deleniti tempora modi totam. Laboriosam.
+                    Ratione dolorum, consequuntur autem, eveniet dolorem eaque architecto debitis nobis error aliquid
+                    aliquam tempore? Dicta ad officia, accusamus aperiam inventore quaerat voluptatem, dolores dolorem
+                    quisquam porro nihil explicabo velit nam.
+                    Sint quia ullam aspernatur dignissimos impedit. Velit expedita, quisquam commodi ratione beatae
+                    voluptatem, soluta vero, odit aut amet magnam dignissimos illo non nam! Quisquam enim rerum dolorum
+                    deserunt facere optio!
+                    Itaque, odit. Alias aperiam aspernatur dicta voluptatibus, eveniet quasi provident earum reiciendis
+                    nisi corporis fugit laborum similique dolores sequi nihil iste labore nesciunt consequatur eaque?
+                    Consectetur qui minima minus ea.
+                    Repellendus, quidem. Quidem laboriosam praesentium vitae modi voluptatem neque expedita officiis
+                    nesciunt accusantium, reiciendis autem dolor ipsum animi! Quam maxime illo quis voluptate molestias
+                    harum in! Nam eos minus alias.
+                    Ipsam cum culpa exercitationem facilis, ipsum, aperiam at nostrum voluptatum cupiditate vitae
+                    dolorem! Aperiam similique dolor itaque at doloremque ut voluptatum numquam eaque deleniti sed
+                    officia autem, ipsum, adipisci ipsa!
+                    Obcaecati iure quibusdam ipsum! Aliquam illo consequatur fugit nostrum ut exercitationem eaque,
+                    architecto dolores deserunt, sit accusamus ab facilis porro quaerat! Debitis voluptatum deserunt
+                    culpa cumque id? Sit, alias earum!
+                    Soluta asperiores vitae culpa nihil neque illo accusamus maiores dolores, aspernatur quidem sequi
+                    beatae hic fugiat ex temporibus at consequuntur nesciunt. Saepe iste quasi, odit placeat neque
+                    praesentium esse sint.
+                    Natus atque, quis vero eaque molestiae eos quaerat soluta quae corporis rem est vitae similique
+                    voluptate, doloribus minus inventore tempore ipsum aliquam. Exercitationem fugit odit eum voluptatum
+                    officia assumenda nemo!
+                    Provident mollitia odit similique est quod error accusamus blanditiis minus totam, perferendis
+                    dolore quas natus commodi beatae autem assumenda quibusdam numquam dignissimos repudiandae. Iste
+                    voluptatibus modi temporibus ducimus dolor accusamus.
+                    Esse soluta voluptates assumenda. Porro modi odit reiciendis! Consectetur esse vitae dolore,
+                    voluptatem perspiciatis fugit porro nesciunt officia cum praesentium libero eaque mollitia, neque et
+                    adipisci, non quia harum maxime.
+                    Debitis pariatur maiores, blanditiis magnam est hic deleniti ea ipsa placeat similique ex cupiditate
+                    laboriosam illum beatae adipisci. Tempore voluptatem voluptate asperiores. Atque omnis cupiditate
+                    officiis ipsam nam sed nihil?
+                    Omnis laudantium deleniti ut neque similique provident itaque ex laborum unde ratione. Odit
+                    aspernatur est iure distinctio, accusamus ipsam soluta minima officia, veritatis eveniet nobis fuga?
+                    Cumque quod natus nihil.
+                    At, provident? Fuga dolorum id quo explicabo ipsa eum quas, temporibus totam exercitationem sunt
+                    necessitatibus architecto dolorem iusto quae, repellendus repudiandae. Repudiandae consequatur
+                    veniam dicta quibusdam recusandae quo velit quam.
+                    Nesciunt inventore totam est voluptatem facilis ducimus, quia maxime ipsam deleniti expedita iure
+                    optio consequuntur sapiente libero eveniet voluptatibus ex vero ea temporibus, voluptas error!
+                    Dolore ratione aspernatur magni dicta?
+                    Eos aspernatur ipsam quaerat natus praesentium vitae, repudiandae inventore, ullam, aperiam
+                    exercitationem nihil enim maxime debitis fugit autem. Dolore voluptates distinctio iusto nobis
+                    pariatur asperiores voluptate nulla laborum sed quam.
+                    Ipsa, pariatur, ex, quam nostrum tenetur ipsam aliquam impedit libero repellendus nulla quia ut
+                    voluptatibus possimus necessitatibus. Ipsum veniam reprehenderit facere voluptates obcaecati quod?
+                    Ea, voluptate. Eos eaque modi magni!
+                </p>
+            </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("MyModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("gallery-item-1");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close-btn")[0];
+
+        var container = document.getElementById("mainContainer")
+        
+        // When the user clicks the button, open the modal 
+        function openModal() {
+            modal.style.display = "block"
+            container.classList.add("overlay-on")
+            document.body.style.overflow = "hidden";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+            container.classList.remove("overlay-on")
+            document.body.style.overflow = "visible";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                container.classList.remove("overlay-on")
+                document.body.style.overflow = "visible";
+            }
+        }
+    </script>
+</body>
+
+</html>
