@@ -192,16 +192,12 @@
 
             <div class="modal" id="MyModal">
                 <span class="close-btn">&times;</span>
-                <div id="output"></div>
             </div>
         </div>
 
         <script>
             // Get the modal
             var modal = document.getElementById("MyModal");
-
-            // Get the output div
-            var output = document.getElementById("output");
 
             // Get the button that opens the modal
             var btn = document.getElementById("gallery-item-1");
@@ -302,7 +298,7 @@
                 modal.style.display = "block";
                 container.classList.add("overlay-on");
                 document.body.style.overflow = "hidden";
-                output["innerHTML"] = htmlOutput;
+                modal["innerHTML"] = htmlOutput;
             }
 
             // When the user clicks on <span> (x), close the modal
