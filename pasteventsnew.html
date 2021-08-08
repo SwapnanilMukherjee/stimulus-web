@@ -77,7 +77,10 @@
         }
 
         .modal {
-            display: none;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            visibility: hidden;
             position: fixed;
             right: 0;
             left: 0;
@@ -86,7 +89,7 @@
             margin: auto auto;
             max-height: 600px;
             /** could be trouble in wix **/
-            width: 1000px;
+            width: 65%;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
@@ -108,19 +111,47 @@
             cursor: pointer;
         }
 
-        .modal-title {
-            font-size: 2.1em;
+        .modal h1{
+            font-size: 2em;
             font-family: Roboto Slab;
-            margin: 55px 65px;
+            margin: 55px 65px 35px 65px;
         }
 
-        .modal-content {
-            display: flex;
-            flex-wrap: wrap;
+        .modal h4 {
+            font-size: 20px;
+            font-family: Roboto Slab;
+            font-weight: 500;
+            margin: 23px 65px 10px 65px;
+        }
+
+        .modal p{
             text-align: justify;
-            font-size: 18px;
+            font-size: 16px;
             font-family: Nunito Sans;
-            margin: 0px 65px 55px 65px;
+            margin: 0px 65px 15px 65px;
+        }
+
+        .modal :last-child{
+            margin-bottom: 55px;
+        }
+
+        @media only screen and (max-width: 500px){
+            .modal{
+                width: 90%;
+            }
+            .modal h1{
+                margin: 23px 25px 15px 25px;
+                font-size: 30px;
+            }
+
+            .modal h4 {
+                margin: 5px 25px 0px 25px;
+            }
+    
+            .modal p{
+                margin: 10px 25px 15px 25px;
+            }
+
         }
     </style>
 </head>
@@ -146,83 +177,23 @@
                 <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
                     <div class="event-title">this is an event title</div>
                 </button>
+                <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal()">
+                    <div class="event-title">this is an event title</div>
+                </button>
             </div>
-
+            <span class="close-btn">&times;</span>
             <div class="modal" id='MyModal'>
-                <span class="close-btn">&times;</span>
-                <div class="modal-title">This is a title</div>
-                <p class="modal-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit architecto
-                    ipsa doloremque saepe rem in, obcaecati aliquid et. Animi illo deleniti nemo porro commodi dolore
-                    perferendis consequuntur blanditiis doloremque id inventore quisquam, accusantium ratione quae rerum
-                    quos, maiores iste praesentium?<br><br>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi voluptatem vero corporis sint
-                    explicabo ea voluptatibus earum modi ipsam, unde voluptatum necessitatibus minus dolore obcaecati
-                    itaque nesciunt quas. Dicta, explicabo eos inventore nesciunt sint corporis porro distinctio dolorem
-                    rem modi ut vero ea delectus praesentium voluptates esse. Quibusdam, laudantium ut. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Aperiam doloremque assumenda natus cum dolores tempore
-                    vero, sit dolorem itaque nobis accusamus id delectus fuga? Necessitatibus velit rem impedit
-                    perferendis deleniti. Temporibus suscipit, fugiat praesentium quisquam sapiente laboriosam adipisci
-                    dignissimos sunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, at? Excepturi esse
-                    sapiente, suscipit soluta quibusdam consequuntur accusamus odit dicta mollitia tempore! Ea,
-                    necessitatibus magni? Ducimus voluptates delectus dolorem quaerat?
-                    Animi sit magni necessitatibus ducimus, ex laboriosam exercitationem architecto modi provident?
-                    Harum facere eveniet enim exercitationem, laboriosam neque modi corrupti explicabo accusantium odit
-                    dolor sit veritatis officia minus in. Amet.
-                    Sunt id, perspiciatis, inventore vero odit vitae incidunt, quod quam ut accusantium repellendus?
-                    Facilis mollitia, corrupti et eaque atque facere nulla autem molestiae. Expedita enim, fugiat ullam
-                    praesentium aliquid suscipit?
-                    Quisquam recusandae, rem esse quia cupiditate distinctio facere magni, ad sapiente id
-                    exercitationem. Incidunt vero, fugiat obcaecati nemo laboriosam labore facilis perspiciatis vel
-                    facere autem deleniti tempora modi totam. Laboriosam.
-                    Ratione dolorum, consequuntur autem, eveniet dolorem eaque architecto debitis nobis error aliquid
-                    aliquam tempore? Dicta ad officia, accusamus aperiam inventore quaerat voluptatem, dolores dolorem
-                    quisquam porro nihil explicabo velit nam.
-                    Sint quia ullam aspernatur dignissimos impedit. Velit expedita, quisquam commodi ratione beatae
-                    voluptatem, soluta vero, odit aut amet magnam dignissimos illo non nam! Quisquam enim rerum dolorum
-                    deserunt facere optio!
-                    Itaque, odit. Alias aperiam aspernatur dicta voluptatibus, eveniet quasi provident earum reiciendis
-                    nisi corporis fugit laborum similique dolores sequi nihil iste labore nesciunt consequatur eaque?
-                    Consectetur qui minima minus ea.
-                    Repellendus, quidem. Quidem laboriosam praesentium vitae modi voluptatem neque expedita officiis
-                    nesciunt accusantium, reiciendis autem dolor ipsum animi! Quam maxime illo quis voluptate molestias
-                    harum in! Nam eos minus alias.
-                    Ipsam cum culpa exercitationem facilis, ipsum, aperiam at nostrum voluptatum cupiditate vitae
-                    dolorem! Aperiam similique dolor itaque at doloremque ut voluptatum numquam eaque deleniti sed
-                    officia autem, ipsum, adipisci ipsa!
-                    Obcaecati iure quibusdam ipsum! Aliquam illo consequatur fugit nostrum ut exercitationem eaque,
-                    architecto dolores deserunt, sit accusamus ab facilis porro quaerat! Debitis voluptatum deserunt
-                    culpa cumque id? Sit, alias earum!
-                    Soluta asperiores vitae culpa nihil neque illo accusamus maiores dolores, aspernatur quidem sequi
-                    beatae hic fugiat ex temporibus at consequuntur nesciunt. Saepe iste quasi, odit placeat neque
-                    praesentium esse sint.
-                    Natus atque, quis vero eaque molestiae eos quaerat soluta quae corporis rem est vitae similique
-                    voluptate, doloribus minus inventore tempore ipsum aliquam. Exercitationem fugit odit eum voluptatum
-                    officia assumenda nemo!
-                    Provident mollitia odit similique est quod error accusamus blanditiis minus totam, perferendis
-                    dolore quas natus commodi beatae autem assumenda quibusdam numquam dignissimos repudiandae. Iste
-                    voluptatibus modi temporibus ducimus dolor accusamus.
-                    Esse soluta voluptates assumenda. Porro modi odit reiciendis! Consectetur esse vitae dolore,
-                    voluptatem perspiciatis fugit porro nesciunt officia cum praesentium libero eaque mollitia, neque et
-                    adipisci, non quia harum maxime.
-                    Debitis pariatur maiores, blanditiis magnam est hic deleniti ea ipsa placeat similique ex cupiditate
-                    laboriosam illum beatae adipisci. Tempore voluptatem voluptate asperiores. Atque omnis cupiditate
-                    officiis ipsam nam sed nihil?
-                    Omnis laudantium deleniti ut neque similique provident itaque ex laborum unde ratione. Odit
-                    aspernatur est iure distinctio, accusamus ipsam soluta minima officia, veritatis eveniet nobis fuga?
-                    Cumque quod natus nihil.
-                    At, provident? Fuga dolorum id quo explicabo ipsa eum quas, temporibus totam exercitationem sunt
-                    necessitatibus architecto dolorem iusto quae, repellendus repudiandae. Repudiandae consequatur
-                    veniam dicta quibusdam recusandae quo velit quam.
-                    Nesciunt inventore totam est voluptatem facilis ducimus, quia maxime ipsam deleniti expedita iure
-                    optio consequuntur sapiente libero eveniet voluptatibus ex vero ea temporibus, voluptas error!
-                    Dolore ratione aspernatur magni dicta?
-                    Eos aspernatur ipsam quaerat natus praesentium vitae, repudiandae inventore, ullam, aperiam
-                    exercitationem nihil enim maxime debitis fugit autem. Dolore voluptates distinctio iusto nobis
-                    pariatur asperiores voluptate nulla laborum sed quam.
-                    Ipsa, pariatur, ex, quam nostrum tenetur ipsam aliquam impedit libero repellendus nulla quia ut
-                    voluptatibus possimus necessitatibus. Ipsum veniam reprehenderit facere voluptates obcaecati quod?
-                    Ea, voluptate. Eos eaque modi magni!
-                </p>
+                
+                <h1>Netiquettes; a modern day requireme 1</h1>
+
+                <p>Oh hello there! It’s wonderful of you to be here reading our work like this.Probably ended up here because you heard about us from a friend, a colleague, or maybe you just stumbled upon us! so I’m assuming you probably have access to the internet? In this pandemic ridden world, almost every aspect of social as well as professional life have been shifted to online platforms and digital mediums. No more ok boomer, y’all! Almost every one of every age now has at least basic access and knowledge of how the internet works. And hence, it is imperative, now, more than ever to have everybody up to date with something really basic social behavior codes and etiquettes!</p>
+                    
+                <p>Well, look no further- here’s a basic guide to being a sensible, responsible and sensitive member of the online community. Follow these simple guides and you’re well on your way to not being a douchebag online 😊</p>
+                    
+                <h4>Firstly,</h4>
+                    
+                <p>Be respectful
+                We’ve been taught this for as long as we can remember: Treat people with the kind of respect that you want to be treated with. Who doesn’t appreciate kindness and respect? And believe us, it’s not hard. Respect others’ opinions, their life experiences, their emotions and the way they choose to live and deal with life. Everyone’s having a hard time. Why make it harder for them? If you have specific opinions and advice, be polite about it, they have the right to not take your advice okay? And if you don’t have anything constructive to say, leave them alone.</p>
             </div>
     </div>
 
@@ -240,14 +211,14 @@
         
         // When the user clicks the button, open the modal 
         function openModal() {
-            modal.style.display = "block"
+            modal.style.visibility = "visible"
             container.classList.add("overlay-on")
             document.body.style.overflow = "hidden";
         }
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
-            modal.style.display = "none";
+            modal.style.visibility = "hidden";
             container.classList.remove("overlay-on")
             document.body.style.overflow = "visible";
         }
@@ -255,7 +226,7 @@
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                modal.style.visibility = "hidden";
                 container.classList.remove("overlay-on")
                 document.body.style.overflow = "visible";
             }
