@@ -47,6 +47,8 @@
             height: 200px;
             width: 200px;
             margin: 20px;
+            box-shadow: none;
+            transition: box-shadow 0.3s ease;
         }
 
         .item-image {
@@ -64,10 +66,11 @@
             position: relative;
             left: 0px;
             margin: auto auto;
-            visibility: hidden;
             color: white;
             font-size: 20px;
             font-family: Nunito Sans;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
         }
         .gallery-item:hover{
             cursor: pointer;
@@ -75,7 +78,7 @@
         }
 
         .gallery-item:hover .event-title {
-            visibility: visible;
+            opacity: 1;
         }
 
         .modal {
@@ -92,10 +95,18 @@
             /** could be trouble in wix **/
             width: 65%;
             background-color: #fff;
-            border-radius: 6px;
-            box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.5);;
+            border-radius: 5px;
+            box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.4);;
             overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             z-index: 3;
+        }
+
+        .modal.open {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         .modal::-webkit-scrollbar-track{ background-color: transparent; }
@@ -115,7 +126,7 @@
             color: #aaaaaa;
             font-size: 48px;
             font-weight: bold;
-            z-index: 4;
+            z-index: 3;
         }
 
         .close-btn:hover,
@@ -126,23 +137,24 @@
         }
 
         .modal h1{
-            font-size: 2em;
+            font-size: 2.1em;
             font-family: Roboto Slab;
-            margin: 50px 65px 35px 65px;
+            font-weight: 450;
+            margin: 50px 65px 30px 65px;
         }
 
         .modal h4 {
             display: block;
             font-size: 20px;
             font-family: Roboto Slab;
-            font-weight: 500;
+            font-weight: 420;
             margin: 15px 65px 10px 65px;
         }
 
         .modal p{
             display: block;
             text-align: justify;
-            font-size: 16px;
+            font-size: 17px;
             font-family: Nunito Sans;
             margin: 0px 65px 15px 65px;
         }
@@ -154,19 +166,25 @@
         @media only screen and (max-width: 500px){
             .modal{
                 width: 90%;
+                transition: opacity 0.2s ease;
             }
+
+            .modal.open{ transition: opacity 0.2s ease }
+
             .modal h1{
-                margin: 23px 25px 15px 25px;
+                margin: 23px 15px 15px 23px;
                 font-size: 30px;
+                font-weight: 600;
             }
 
             .modal h4 {
                 font-size: 20px;
-                margin: 12px 25px 0px 25px;
+                margin: 12px 25px 0px 23px;
             }
     
             .modal p{
-                margin: 7px 30px 5px 25px;
+                margin: 7px 15px 5px 23px;
+                font-size: 16px;
             }
         }
 
@@ -203,17 +221,6 @@
     </div>
 
     <script>
-        // Get the modal
-        var modal = document.getElementById("MyModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("gallery-item-1");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close-btn")[0];
-
-        var container = document.getElementById("mainContainer");
-
         function parseMd(md) {
             if (md == null) {
                 return "Try Again";
@@ -298,26 +305,35 @@
             return rawText;
         }
 
+        // Get the modal
+        var modal = document.getElementById("MyModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("gallery-item-1");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close-btn")[0];
+
+        var container = document.getElementById("mainContainer");
         // When the user clicks the button, open the modal
         function openModal(id) {
             rawMd = getFile(id);
             htmlOutput = parseMd(rawMd);
-            modal.style.visibility = "visible";
-            container.classList.add("overlay-on");
+            modal.classList.add("open");
             document.body.style.overflow = "hidden";
             modal["innerHTML"] = htmlOutput;
         }
 
          // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
-            modal.style.visibility = "hidden";
+            modal.classList.remove("open");
             document.body.style.overflow = "visible";
         }
     
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
-            modal.style.visibility = "hidden";
+            modal.classList.remove("open");
             document.body.style.overflow = "visible";
             }
         }
