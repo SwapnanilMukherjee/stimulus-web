@@ -25,18 +25,14 @@
             border: 2px solid red;
             height: 100%;
             width: 100%;
-            z-index: 2;
-        }
-
-        .container.overlay-on {
-            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 999;
         }
 
         .events {
             position: relative;
             display: flex;
             flex-wrap: wrap;
-            width: 50%;
+            width: 90%;
             margin: auto;
             justify-content: center;
             align-content: justify;
@@ -46,10 +42,11 @@
         }
 
         .gallery-item {
+            background: url(https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg) no-repeat;
+            background-size: 200px 200px;
             height: 200px;
             width: 200px;
             margin: 20px;
-            box-shadow: none;
         }
 
         .item-image {
@@ -64,14 +61,17 @@
         }
 
         .event-title {
+            position: relative;
+            left: 0px;
+            margin: auto auto;
             visibility: hidden;
-            color: red;
+            color: white;
             font-size: 20px;
+            font-family: Nunito Sans;
         }
-
-        .gallery-item:hover {
+        .gallery-item:hover{
             cursor: pointer;
-            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
         }
 
         .gallery-item:hover .event-title {
@@ -92,10 +92,20 @@
             /** could be trouble in wix **/
             width: 65%;
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+            border-radius: 6px;
+            box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.5);;
             overflow-y: auto;
             z-index: 3;
+        }
+
+        .modal::-webkit-scrollbar-track{ background-color: transparent; }
+
+        .modal::-webkit-scrollbar{ width: 10px; }
+
+        .modal::-webkit-scrollbar-thumb{
+            background-color: #22202033;
+            background-clip: padding-box;
+            border-radius: 5px;
         }
 
         .close-btn {
@@ -118,7 +128,7 @@
         .modal h1{
             font-size: 2em;
             font-family: Roboto Slab;
-            margin: 55px 65px 35px 65px;
+            margin: 50px 65px 35px 65px;
         }
 
         .modal h4 {
@@ -126,7 +136,7 @@
             font-size: 20px;
             font-family: Roboto Slab;
             font-weight: 500;
-            margin: 23px 65px 10px 65px;
+            margin: 15px 65px 10px 65px;
         }
 
         .modal p{
@@ -152,11 +162,11 @@
 
             .modal h4 {
                 font-size: 20px;
-                margin: 5px 25px 0px 25px;
+                margin: 12px 25px 0px 25px;
             }
     
             .modal p{
-                margin: 10px 30px 15px 25px;
+                margin: 7px 30px 5px 25px;
             }
         }
 
@@ -166,47 +176,26 @@
 <body>
     <div class="container" id="mainContainer">
         <div class="events">
-            <button class="gallery-item" id="gallery-item-1" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                <div class="event-title">this is an event title</div>
+            <button class="gallery-item" id="gallery-item-1" type="button" onclick="openModal(this.id)" text=>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-2" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-3" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-4" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-5" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-6" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
             <button class="gallery-item" id="gallery-item-7" type="button" onclick="openModal(this.id)">
-                <img class="item-image"
-                    src="https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg"
-                    alt="" />
-                    <div class="event-title">this is an event title</div>
+                <div class="event-title">this is an event title. click to learn more</div>
             </button>
         </div>
         <span class="close-btn">&times;</span>
@@ -322,7 +311,6 @@
          // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.visibility = "hidden";
-            container.classList.remove("overlay-on")
             document.body.style.overflow = "visible";
         }
     
@@ -330,7 +318,6 @@
         window.onclick = function (event) {
             if (event.target == modal) {
             modal.style.visibility = "hidden";
-            container.classList.remove("overlay-on")
             document.body.style.overflow = "visible";
             }
         }
