@@ -207,11 +207,11 @@
             </button>
         </div>
         <span class="close-btn">&times;</span>
-        <div class="modal" id="MyModal"> </div>
+        <div class="modal" id="MyModal"><div class="output" id="Output"></div> </div>
     </div>
 
     <script>
-        var number_of_events = 7;
+        var number_of_events = 7; // Remeber to change this when you change the number of events
 
         function parseMd(md) {
             if (md == null) {
@@ -300,6 +300,9 @@
         // Get the modal
         var modal = document.getElementById("MyModal");
 
+        // Get the Output div
+        var output = document.getElementById("Output");
+
         // Get the button that opens the modal
         var btn = document.getElementById("event-item-1");
 
@@ -321,8 +324,7 @@
             content_index = id.charAt(id.length-1)-1;
             modal.classList.add("open");
             document.body.style.overflow = "hidden";
-            modal["innerHTML"] = event_content[content_index];
-            console.log(content_index);
+            output["innerHTML"] = event_content[content_index];
         }
 
          // When the user clicks on <span> (x), close the modal
@@ -340,5 +342,4 @@
         }
     </script>
 </body>
-
 </html>
