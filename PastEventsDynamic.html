@@ -211,6 +211,8 @@
     </div>
 
     <script>
+        var number_of_events = 7;
+
         function parseMd(md) {
             if (md == null) {
                 return "Try Again";
@@ -283,7 +285,7 @@
 
         function getFile(id) {
             var rawtext = null;
-            var url = `https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Blogs/Test/${id}.md`;
+            var url = `https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Blogs/Test/event-item-${id}.md`;
             $.ajax({
                 url: url,
                 type: "get",
@@ -305,13 +307,22 @@
         var span = document.getElementsByClassName("close-btn")[0];
 
         var container = document.getElementById("mainContainer");
+
+        var event_content = [];
+
+        // Fetching all the content as soon as the website loads
+        for (var i = 0; i < number_of_events; i++) {
+            rawMd = getFile(i+1);
+            event_content[i] = parseMd(rawMd);
+        }
+
         // When the user clicks the button, open the modal
         function openModal(id) {
-            rawMd = getFile(id);
-            htmlOutput = parseMd(rawMd);
+            content_index = id.charAt(id.length-1)-1;
             modal.classList.add("open");
             document.body.style.overflow = "hidden";
-            modal["innerHTML"] = htmlOutput;
+            modal["innerHTML"] = event_content[content_index];
+            console.log(content_index);
         }
 
          // When the user clicks on <span> (x), close the modal
