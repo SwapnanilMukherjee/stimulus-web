@@ -21,10 +21,13 @@
         }
 
         .container {
+            display: flex;
             position: relative;
-            height: 100%;
+            height: 100vh;
             width: 100%;
             z-index: 999;
+            border: 2px solid red;
+            align-items: center;
         }
 
         .events {
@@ -33,30 +36,20 @@
             flex-wrap: wrap;
             width: 90%;
             margin: auto;
-            justify-content: center;
-            align-content: justify;
+            justify-content: space-evenly;
             z-index: 1;
+            border: 2px solid green;
         }
 
         .event-item {
             background: url(https://raw.githubusercontent.com/SwapnanilMukherjee/stimulus-web/main/Images/Test/Rick%20Astley.jpg) no-repeat;
-            background-size: 200px 200px;
-            height: 200px;
-            width: 200px;
+            background-size: 250px 175px;
+            height: 175px;
+            width: 255px;        
             margin: 20px;
             box-shadow: none;
             transition: box-shadow 0.3s ease;
-        }
-
-        .item-image {
-            display: inline-block;
-            position: relative;
-            top: -2px;
-            left: -2px;
-            height: 200px;
-            width: 200px;
-            cursor: pointer;
-            z-index: 0;
+            border: 3px solid blue;
         }
 
         .event-title {
@@ -192,25 +185,25 @@
     <div class="container" id="mainContainer">
         <div class="events">
             <button class="event-item" id="event-item-1" type="button" onclick="openModal(this.id)" text=>
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-2" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-3" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-4" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-5" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-6" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
             <button class="event-item" id="event-item-7" type="button" onclick="openModal(this.id)">
-                <div class="event-title">this is an event title. click to learn more</div>
+                <div class="event-title">this is an event title. <br> click to learn more</div>
             </button>
         </div>
         <span class="close-btn">&times;</span>
