@@ -4,7 +4,7 @@ Oh hello there! It’s wonderful of you to be here reading our work like this.Pr
 
 Well, look no further- here’s a basic guide to being a sensible, responsible and sensitive member of the online community. Follow these simple guides and you’re well on your way to not being a douchebag online 😊
 
-Firstly,
+Firstly.
 
 #### Be respectful
 
