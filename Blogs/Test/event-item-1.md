@@ -5,7 +5,6 @@ Oh hello there! It’s wonderful of you to be here reading our work like this.Pr
 Well, look no further- here’s a basic guide to being a sensible, responsible and sensitive member of the online community. Follow these simple guides and you’re well on your way to not being a douchebag online 😊
 
 Firstly,
-
 #### Be respectful
 
 We’ve been taught this for as long as we can remember: Treat people with the kind of respect that you want to be treated with. Who doesn’t appreciate kindness and respect? And believe us, it’s not hard. Respect others’ opinions, their life experiences, their emotions and the way they choose to live and deal with life. Everyone’s having a hard time. Why make it harder for them? If you have specific opinions and advice, be polite about it, they have the right to not take your advice okay? And if you don’t have anything constructive to say, leave them alone.
