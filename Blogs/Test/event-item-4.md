@@ -34,9 +34,13 @@ Are they asking questions that make you uncomfortable, and continue to do so eve
 
 Not only children, but also parents can keep an eye out for such occurrences in their wards’ lives. Ask your children what is causing them to feel upset every time they use the internet, why their health mental or physical seems to be deteriorating. Help your children out by identifying, blocking and reporting, these perpetrators. DO NOT RESPOND to such people, your responses can be used against you in the future. Collect evidence such as screen shots in order to report these people.
 
+Thirdly,
+
 #### Don’t be intrusive
 
 Just like you should be careful about divulging sensitive information about yourself on the web, be mindful of what you ask people for. Don’t ask things like people’s home or workplace addresses, their current locations, their bank details, pictures, people they associate with, what their love life is like etc, unless they volunteer that information themselves, because they trust you. Don’t expect your online friends to plan their schedules around you either. Be respectful of their time and how they choose to spend it. And please! Stop moral policing people!
+
+Firstly,
 
 #### Think and review before posting or reposting anything
 
